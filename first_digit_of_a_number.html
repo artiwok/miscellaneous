@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>first_digit_of_a_number</title>
+</head>
+
+<body>
+  <script>
+
+    // getting first digit of a number
+    // нахождение первой цифры в целом числе (положительном и отрицательном)
+
+    function getFirstDigit(n) {
+      let positive = Math.abs(n);
+      while (positive >= 10) {
+        positive /= 10;
+        positive = Math.floor(positive);
+      }
+      if (n < 0) {
+        return positive *= -1;
+      }
+      return positive;
+    }
+
+    console.log(getFirstDigit(7190023)); // 7
+    console.log(getFirstDigit(190023)); // 1
+    console.log(getFirstDigit(90023)); // 9
+    console.log(getFirstDigit(423)); // 4
+    console.log(getFirstDigit(65)); // 6
+    console.log(getFirstDigit(0)); // 0
+    console.log(getFirstDigit(-28)); // -2
+    console.log(getFirstDigit(-101)); // -1
+    console.log(getFirstDigit(-9101)); // -9
+    console.log(getFirstDigit(-89101)); // -8
+
+  </script>
+</body>
+
+</html>
