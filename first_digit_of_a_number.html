@@ -12,18 +12,21 @@
   <script>
 
     // getting first digit of a number
-    // нахождение первой цифры в целом числе (положительном и отрицательном)
+    // нахождение первой цифры в целом или вещественном/дробном числе (положительном и отрицательном)
 
     function getFirstDigit(n) {
-      let positive = Math.abs(n);
-      while (positive >= 10) {
-        positive /= 10;
-        positive = Math.floor(positive);
+      let num = Math.abs(n);
+      if (num % 1 !== 0) {
+        num = Math.trunc(num);
       }
+      while (num >= 10) {
+        num /= 10;
+        num = Math.floor(num);
+      } 
       if (n < 0) {
-        return positive *= -1;
+        return num *= -1;
       }
-      return positive;
+      return num;
     }
 
     console.log(getFirstDigit(7190023)); // 7
@@ -32,10 +35,15 @@
     console.log(getFirstDigit(423)); // 4
     console.log(getFirstDigit(65)); // 6
     console.log(getFirstDigit(0)); // 0
+    console.log(getFirstDigit(3.597)); // 3
     console.log(getFirstDigit(-28)); // -2
     console.log(getFirstDigit(-101)); // -1
     console.log(getFirstDigit(-9101)); // -9
     console.log(getFirstDigit(-89101)); // -8
+    console.log(getFirstDigit(-4.9101)); // -4
+    console.log(getFirstDigit(-1.07)); // -1
+    console.log(getFirstDigit(0.001)); // 0
+    console.log(getFirstDigit(-0.978)); // -0
 
   </script>
 </body>
